@@ -7,7 +7,7 @@ const Item = ( props ) => {
 
     return (
         <li>
-            <imput type='checkbox' onChange={() => {
+            <input type='checkbox' onChange={() => {
                 setIsDone(!isDone)
             }}
             />

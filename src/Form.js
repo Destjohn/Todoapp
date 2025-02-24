@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Form = ({ todos, setTodos }) => {
     const [value, setValue] = useState('')
 
-    const handleSubmit = () => {
+    const handleSubmit = ( e ) => {
         e.preventDefault() //ページのリロードをキャンセル
         console.log(value)
 
@@ -17,7 +17,7 @@ const Form = ({ todos, setTodos }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <imput
+            <input
                 type="text"
                 onChange={e => {
                     setValue(e.target.value)
