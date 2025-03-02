@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
 
-const Form = ({ todos, setTodos }) => {
+const Form = ({ addTodo }) => {
     const [value, setValue] = useState('')
 
     const handleSubmit = ( e ) => {
         e.preventDefault() //ページのリロードをキャンセル
-        console.log(value)
-
-        setTodos([
-            ...todos, //スプレッド構文
-            {
-                content: value
-            }
-        ])
+        if (value.trim() === '') return alert('文字を入力してください')
+        addTodo(value)
     }
 
     return (
@@ -22,7 +16,9 @@ const Form = ({ todos, setTodos }) => {
                 onChange={e => {
                     setValue(e.target.value)
                 }}
+                placeholder='タスクを入力...'
             />
+            <button disabled={value.trim() === ''}>送信</button>
         </form>
     )
 }
